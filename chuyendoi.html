@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi</title>
+</head>
+<body>
+<input type="text" id="input"/>Giá Trị cần chuyển đổi
+<select id="dauVao">
+    <option value="feet">Feet==>Meters</option>
+    <option value="meters">Meters==>Feet</option>
+</select>
+<button onclick="chuyenDoi()">Convert</button>
+<p id="show"></p>
+<script>
+    let result;
+
+    let dauVao = document.getElementById("dauVao");
+
+    function chuyenDoiFeet(giaTri) {
+        result = 0.305* giaTri;
+        return result;
+
+    }
+
+    function chuyenDoiMeters(giaTri) {
+        result = 3.279 * giaTri;
+        return result;
+    }
+
+    function chuyenDoi() {
+        let ketqua=0;
+        let input = parseFloat(document.getElementById("input").value);
+
+        if (dauVao.value === "feet") {
+            ketqua = chuyenDoiFeet(input);
+        } else if (dauVao.value === "meters") {
+            ketqua = chuyenDoiMeters(input);
+        }
+        document.getElementById("show").innerHTML = ketqua;
+    }
+
+</script>
+</body>
+</html>
